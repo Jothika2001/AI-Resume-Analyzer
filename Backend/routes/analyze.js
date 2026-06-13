@@ -75,7 +75,6 @@ router.post("/", upload.single("resume"), async (req, res) => {
     });
     
   } catch (error) {
-    console.error("Analysis error:", error);
     res.status(500).json({
       success: false,
       error: `Failed to analyze resume: ${error.message}`,

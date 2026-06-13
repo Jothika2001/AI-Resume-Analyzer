@@ -13,10 +13,12 @@ async function getCollection(sessionId) {
     try {
       return await chromaClient.getCollection({
         name: collectionName,
+        embeddingFunction: undefined  // Fix: Disable default embedding
       });
     } catch {
       return await chromaClient.createCollection({
         name: collectionName,
+        embeddingFunction: undefined,  // Fix: Disable default embedding
         metadata: {
           "hnsw:space": "cosine",
           created: new Date().toISOString(),
